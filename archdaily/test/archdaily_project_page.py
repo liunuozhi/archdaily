@@ -7,18 +7,16 @@ def __page_content(url):
     soup = BeautifulSoup(res.text, 'lxml')
     return soup
 
-
 def __parse_project_data(soup):
     data = {}
     data['name'] = soup.body.h1.text.strip()
     data['article'] = [p.text.strip() for p in soup.body.article.find_all('p')]
 
     # project info
+    # TODO Cannot parse constructor tag
     info = soup.find_all('li', attrs={'class': 'afd-char-item'})
     data['info'] = [{x.h3.text.strip(): x.div.text.strip()} for x in info]
-
     return data
-
 
 def project_page(url):
     soup = __page_content(url)
