@@ -7,7 +7,7 @@ from pprint import pprint
 class ArchdailyCrawl(scrapy.Spider):
     name = 'archdaily'
     start_urls = [
-        'https://www.archdaily.com/search/projects/categories/theaters-and-performance'
+        'https://www.archdaily.com/search/projects/categories/residential-architecture'
     ]
 
     # TODO Priority test exported json file whether can be opened by pandas
